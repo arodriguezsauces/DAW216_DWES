@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" type="image/png" href="../webroot/images/favicon.png">
+        
+        <title>ejercicio 10 - Rodrigo Robles</title>
+    </head>
+    
+    <body>
+        <h1>Rodrigo Robles</h1>
+        <?php
+             /* Mostrar el contenido del fichero que se está ejecutando */
+             
+            show_source(__FILE__); //hace lo mismo que  highlight_file()
+         
+        ?>
+    </body>
+</html>
+
+
+
+

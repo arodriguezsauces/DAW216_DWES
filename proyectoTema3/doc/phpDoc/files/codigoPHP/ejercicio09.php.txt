@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" type="image/png" href="../webroot/images/favicon.png">
+        
+        <title>ejercicio 09 - Rodrigo Robles</title>
+    </head>
+    
+    <body>
+        <h1>Rodrigo Robles</h1>
+        <?php
+             /* Mostrar el path donde se encuentra el fichero que se está ejecutando */
+             
+            echo "Path entero: " .$_SERVER['PHP_SELF'];
+         
+        ?>
+    </body>
+</html>
+
+
+
+
