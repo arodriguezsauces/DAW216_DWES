@@ -57,6 +57,7 @@
                 //Recorremos el array de comprobaciones, y si en un campo hay error, se repite el formulario
                 foreach ($aErrores as $campo => $comprobacion) { //ej: un campo seria 'nombre' y su valor seria la comprobacion
                     if($comprobacion!=null){
+                       $_REQUEST[$campo] = ""; /*VACIA LOS CAMPOS ERRONEOS*/
                        $todobien=false; 
                     }
                     
@@ -94,7 +95,13 @@
                 <div id="content">
                     
                     <label>Nombre</label></br>
-                        <input id="nombre" name="nombre" placeholder="Nombre..." type="text"/></br> 
+                        <input type="text" id="nombre" name="nombre" placeholder="Nombre..." value="<?php
+                        
+                            if (isset($_POST["nombre"]) && is_null($aErrores["nombre"])) { //comprobamos si ha introducido algo en el campo y que el array de errores este null (osea, que no de errores)
+         
+                                echo $_POST["nombre"];//aunque se muestre un campo mal el valor si es correcto se mantiene.
+                        }
+                        ?>"><br>
                             <?php if ($aErrores['nombre'] != NULL) { ?>
                             <div class="alert"> 
                                 <?php echo $aErrores['nombre']; ?>
@@ -102,7 +109,13 @@
                             <?php } ?>
                         
                     <label>Apellidos</label></br>
-                        <input id="apellidos" name="apellidos" placeholder="Apellidos..." type="text"/></br> 
+                        <input id="apellidos" name="apellidos" placeholder="Apellidos..." type="text" value="<?php
+                        
+                            if (isset($_POST["apellidos"]) && is_null($aErrores["apellidos"])) { //comprobamos si ha introducido algo en el campo y que el array de errores este null (osea, que no de errores)
+         
+                                echo $_POST["apellidos"];//aunque se muestre un campo mal el valor si es correcto se mantiene.
+                        }
+                        ?>"> <br>
                             <?php if ($aErrores['apellidos'] != NULL) { ?>
                             <div class="alert"> 
                                 <?php echo $aErrores['apellidos']; ?>
@@ -110,7 +123,13 @@
                             <?php } ?>
                         
                     <label>Email</label></br>
-                        <input id="email" name="email" placeholder="Email..." type="text"/></br>
+                        <input id="email" name="email" placeholder="Email..." type="text" value="<?php
+                        
+                            if (isset($_POST["email"]) && is_null($aErrores["email"])) { //comprobamos si ha introducido algo en el campo y que el array de errores este null (osea, que no de errores)
+         
+                                echo $_POST["email"];//aunque se muestre un campo mal el valor si es correcto se mantiene.
+                        }
+                        ?>"> <br>
                             <?php if ($aErrores['email'] != NULL) { ?>
                             <div class="alert"> 
                                 <?php echo $aErrores['email']; ?>
@@ -118,7 +137,13 @@
                             <?php } ?>
                         
                     <label>Contenido</label><br>
-                        <textarea id="contenido" name="mensaje" placeholder="¡Ingresa aqui el mensaje propio!" cols="100" rows="6"></textarea><br>
+                        <textarea id="contenido" name="mensaje" placeholder="¡Ingresa aqui el mensaje propio!" cols="100" rows="6" value="<?php
+                        
+                            if (isset($_POST["mensaje"]) && is_null($aErrores["mensaje"])) { //comprobamos si ha introducido algo en el campo y que el array de errores este null (osea, que no de errores)
+         
+                                echo $_POST["mensaje"];//aunque se muestre un campo mal el valor si es correcto se mantiene.
+                        }
+                        ?>"></textarea> <br>
                             <?php if ($aErrores['mensaje'] != NULL) { ?>
                             <div class="alert"> 
                                 <?php echo $aErrores['mensaje']; ?>
