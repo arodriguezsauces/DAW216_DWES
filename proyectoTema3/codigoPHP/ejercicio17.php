@@ -41,19 +41,18 @@
             
             //while()
             echo "</br><h2>while</h2>";
-            $fila2=1; //nuevas variables(contadores) inicializadas
-            $asiento2=1;
             
-            while($fila2 <= 20){       
+            $fila2=1; //nuevas variables(contadores) inicializadas
+            while($fila2 <= 20){ 
+                $asiento2=1;
                 while($asiento2 <= 15){
                      if($teatro[$fila2][$asiento2]){ //si el asiento esta reservado se muestra
-                         echo "Fila: {$fila2}, asiento {$asiento2}: ".$nombre ."</br>";
+                         echo "Fila: {$fila2}, asiento {$asiento2}: ".$teatro[$fila2][$asiento2] ."</br>";
                      }
                      $asiento2++; //tras el proceso se suma 1
                 }
                $fila2++;
             }
-            
             //for()
             echo "</br><h2>for</h2>";
             for ($i = 1; $i <= $filas; $i++) { //se recorren las filas
