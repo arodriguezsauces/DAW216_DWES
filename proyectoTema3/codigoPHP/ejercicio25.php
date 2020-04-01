@@ -41,7 +41,6 @@
                     'phoras'=>null,
                     'mensaje'=>null,
                     'equipo'=>null,
-                    'aficiones'=>null,
                     'estres'=>null,
                 ];
 
@@ -57,7 +56,6 @@
                     'phoras'=>null,
                     'mensaje'=>null,
                     'equipo'=>null,
-                    'aficiones'=>null,
                     'estres'=>null,
                 ];
                 
@@ -111,10 +109,6 @@
             $aFormulario['phoras']=$_POST["phoras"];
             $aFormulario['mensaje']=$_POST["mensaje"];
             $aFormulario['equipo']=$_POST["equipo"];
-            if(!isset($_POST['aficiones'])){ //si la lista de estres fuera opcional seria igual
-                $aFormulario['aficiones'] = $_POST['aficiones'];
-                
-            } 
             $aFormulario['estres']=$_POST["estres"];
             
             ?>
@@ -143,24 +137,7 @@
                 }   
                     ?>
                 </p>
-                <p>Equipamiento elegido: <?php echo $aFormulario['equipo']; ?></p>
-                <p>
-                    <?php 
-                    if($aFormulario['aficiones'] != null){
-                    echo "Aficiones: ";
-                    if(isset($aFormulario['aficiones']['netflix'])){
-                        echo $aFormulario['aficiones']['netflix'] . " ";      
-                    }
-                    if(isset($aFormulario['aficiones']['dormir'])){
-                        echo $aFormulario['aficiones']['dormir'] . " ";
-                    }
-                    if(isset($aFormulario['aficiones']['limpiar'])){
-                        echo $aFormulario['aficiones']['limpiar'] . " ";
-                    }
-                    echo "<br/>";
-                }
-                    ?>
-                </p>
+                <p>Equipamiento elegido: <?php echo $aFormulario['equipo']; ?></p>              
                 <p>Nivel de estrés: <?php echo $aFormulario['estres']; ?></p>
                 <?php if($aFormulario['mensaje']!=null){?>
                     <p>Mensaje para la posteridad despues de cuarentena: " <?php echo $aFormulario['mensaje']?>"</p>
@@ -335,36 +312,7 @@
                                     <?php echo $aErrores['equipo']; ?>
                                 </div>  </br> 
                                 <?php } ?>
-                                </br>
-                                
-                    <label>Aficiones para amenizar la cuarentena </label><br>
-                        <input id="netflix" name="aficiones[netflix]" type="checkbox" value="netflix" <?php 
-                                if(isset($_POST['aficiones']['netflix'])){
-                                    echo 'checked';
-
-                                } ?>>
-                            <label for="netflix" class="selecciones">Netflix</label></br>
-                            
-                        <input id="dormir" name="aficiones[dormir]" type="checkbox" value="dormir" <?php 
-                                if(isset($_POST['aficiones']['dormir'])){
-                                    echo 'checked';
-
-                                } ?>>
-                            <label for="dormir" class="selecciones">Dormir</label></br>
-                            
-                        <input id="limpiar" name="aficiones[limpiar]" type="checkbox" value="limpiar" <?php 
-                                if(isset($_POST['aficiones']['limpiar'])){
-                                    echo 'checked';
-
-                                } ?>>
-                            <label for="limpiar" class="selecciones">Limpiar</label></br>    
-                            
-                                <?php if ($aErrores['aficiones'] != NULL) { ?>
-                                <div class="alert"> 
-                                    <?php echo $aErrores['aficiones']; ?>
-                                </div>  </br> 
-                                <?php } ?>
-                                </br>
+                                </br>                                                    
                                 
                     <label>Nivel de estrés actual</label></br>
                         <select name="estres">
