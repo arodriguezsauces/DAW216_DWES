@@ -4,7 +4,7 @@
  * Created: 05-nov-2019
  */
 -- Base de datos a usar
-USE DAW218DBDepartamentos;
+USE DAW216DBDepartamentos;
 
 -- Introduccion de datos dentro de la tabla creada
 INSERT INTO Departamento(CodDepartamento,DescDepartamento) VALUES

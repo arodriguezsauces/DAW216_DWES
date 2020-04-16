@@ -5,9 +5,9 @@
  */
 
 -- Crear base de datos --
-    CREATE DATABASE if NOT EXISTS DAW218DBDepartamentos;
+    CREATE DATABASE if NOT EXISTS DAW216DBDepartamentos;
 -- Uso de la base de datos. --
-    USE DAW218DBDepartamentos;
+    USE DAW216DBDepartamentos;
     
 
 -- Crear tablas. --
@@ -17,7 +17,7 @@
     );
 
 -- Crear del usuario --
-    CREATE USER IF NOT EXISTS 'usuarioDAW218DBdepartamentos'@'%' identified BY 'P@ssw0rd'; 
+    CREATE USER IF NOT EXISTS 'usuarioDAW216DBdepartamentos'@'%' identified BY 'P@ssw0rd'; 
 
 -- Dar permisos al usuario --
-    GRANT ALL PRIVILEGES ON DAW218DBDepartamentos.* TO 'usuarioDAW218DBdepartamentos'@'%'; 
+    GRANT ALL PRIVILEGES ON DAW216DBDepartamentos.* TO 'usuarioDAW216DBdepartamentos'@'%'; 
