@@ -22,7 +22,7 @@
         //probamos la conexion
         try {
             
-            //la variable 'base' es una nuevo PDO que contiene los datos necesarios para establecer la conexion (DNS= host[ip] y base de datos), USUARIO[de la base de datos], CONSTRASEÑA[del usuario])
+            //la variable 'base' es una nuevo PDO que contiene los datos necesarios para establecer la conexion (DNS= host[ip] y base de datos), USUARIO[de la base de datos], CONTRASEÑA[del usuario])
             $base = new PDO(DNS,USER,PWD);
             
             //incluimos en un array todos los atributos de la base de datos que queremos sacar
@@ -39,8 +39,9 @@
                     echo $base->getAttribute(constant("PDO::ATTR_$val")) . "</li></br>";
                 echo "</ul>";    
             }
+            $base=null; //Se cierra la conexion
             
-        //si la coenxion es erronea, capturamos el motivo mediante el catch y lo sacamos por pantalla    
+        //si la conexion es erronea, capturamos el motivo mediante el catch y lo sacamos por pantalla    
         } catch (PDOException $error) {
             echo 'Error: ' . $error->getMessage() . '</br>';
             die();//con esta funcion obligamos a terminar el codigo
@@ -64,7 +65,7 @@
                 echo "</ul>";    
             }
             
-            
+            $base2=null; //Se cierra la conexion
         } catch (PDOException $error2) {
             echo 'Error: ' . $error2->getMessage() . '</br>';
             die();
