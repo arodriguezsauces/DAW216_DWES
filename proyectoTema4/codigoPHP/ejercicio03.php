@@ -72,7 +72,7 @@
             $aFormulario['descripcionD']=ucfirst($_POST["descripcionD"]); //funcion que convierte la primera letra en mayuscula
             
             
-            include_once '../config/datosBase.php';
+            require_once '../config/datosBase.php';
 
 
             //probamos la conexion

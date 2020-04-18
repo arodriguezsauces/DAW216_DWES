@@ -80,12 +80,12 @@
             ::placeholder{
                 color:#FAB4FA;
             }
-            table{
-                        margin:0 auto;
+             .tabla{
+                        margin:100px;
                         padding:10px;
-                        width: 1200px;
-                        text-align:left;
+                        width: 1100px;
+                        text-align: left;
                     }
-                    table td{
+                    .tabla td{
                         padding:10px;
                     }

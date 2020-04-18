@@ -15,7 +15,7 @@
         */
             
         //incluir el archivo que contiene los datos de la conexion con la base de datos 
-        include_once '../config/datosBase.php';
+        require_once '../config/datosBase.php';
         
         echo "<h2>Contenido de la tabla Departamentos</h2>";
         
@@ -27,7 +27,7 @@
             
             //se utiiza la conexion para sacar los datos de la tabla Departamento
             
-            $sql = 'SELECT CodDepartamento, DescDepartamento FROM Departamento ORDER BY CodDepartamento';
+            $mostrarSQL = 'SELECT CodDepartamento, DescDepartamento FROM Departamento ORDER BY CodDepartamento';
             
             echo "<table>";
             
@@ -38,7 +38,7 @@
                     
                 echo "</tr>";
                 
-                    foreach ($base->query($sql) as $row) {
+                    foreach ($base->query($mostrarSQL) as $row) {
                         echo "<tr>";
                             print "<td>" . $row['CodDepartamento'] . "</td>" ; 
                             print "<td>" . $row['DescDepartamento'] . "</td>" ;
