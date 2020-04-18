@@ -18,6 +18,7 @@
        include_once '../core/ValidacionFormularios.php'; //incluyo las funciones de validacion
         
         $todobien =true; //variable boolean que utilizaremos para saber si todos los datos se han introducido correctamente
+        $diferente = true; //varable boolean que se encarga de validar si introduces el mismo codigo u otro
         
         /*CONSTANSTES*/
             
@@ -72,8 +73,7 @@
             
             
             include_once '../config/datosBase.php';
-        
-            echo "<h2>Contenido de la tabla Departamentos</h2>";
+
 
             //probamos la conexion
             try {
@@ -81,33 +81,48 @@
                 //la variable 'base' es una nuevo PDO que contiene los datos necesarios para establecer la conexion (DNS= host[ip] y base de datos), USUARIO[de la base de datos], CONTRASEÑA[del usuario])
                 $base = new PDO(DNS,USER,PWD);
                 
-                //Insertar el nuevo departamento en la base de datos
-                $insertarSQL = 'INSERT INTO Departamento(CodDepartamento, DescDepartamento) VALUES (?,?)'; //en el query tengo marcadores de posicion (?, en los cuales se introduciran los campos al ejecutar el query
-                
-                //encadeno el prepare y el execute, en este último indico los campos que introducire en el query, en las posicione que ocupan los ?
-                $base->prepare($insertarSQL)->execute([$aFormulario['codigoD'],$aFormulario['descripcionD']]);
-                
                 //se utiiza la conexion para sacar los datos de la tabla Departamento
                 $mostrarSQL = 'SELECT CodDepartamento, DescDepartamento FROM Departamento ORDER BY CodDepartamento';
+                
+                foreach ($base->query($mostrarSQL) as $row) {
+                    //se comprueba que el codigo que se quiere introducir no esta repetido ya
+                    if ($row['CodDepartamento']===$aFormulario['codigoD']) {
+                        $diferente=false;                     
+                    }else{
+                       //Insertar el nuevo departamento en la base de datos
+                        $insertarSQL = 'INSERT INTO Departamento(CodDepartamento, DescDepartamento) VALUES (?,?)'; //en el query tengo marcadores de posicion (?, en los cuales se introduciran los campos al ejecutar el query
 
-                echo "<table>";
-
-                    echo "<tr>";
-
-                        echo "<th>Código</th>";
-                        echo "<th>Descripción</th>";
-
-                    echo "</tr>";
-
-                        foreach ($base->query($mostrarSQL) as $row) {
-                            echo "<tr>";
-                                print "<td>" . $row['CodDepartamento'] . "</td>" ; 
-                                print "<td>" . $row['DescDepartamento'] . "</td>" ;
-                            echo "</tr>";
+                        //encadeno el prepare y el execute, en este último indico los campos que introducire en el query, en las posicione que ocupan los ?
+                        $base->prepare($insertarSQL)->execute([$aFormulario['codigoD'],$aFormulario['descripcionD']]); 
+                    }
+                            
                         }
+                  
+                   //Si se ha introducido se muestra la tabla, sino un ensaje de error
+                  if($diferente){
+                       echo "<h2>Contenido de la tabla Departamentos</h2>";
+                       echo "<table>";
 
-               echo "</table>";
+                            echo "<tr>";
 
+                                echo "<th>Código</th>";
+                                echo "<th>Descripción</th>";
+
+                            echo "</tr>";
+
+                                foreach ($base->query($mostrarSQL) as $row) {
+                                    echo "<tr>";
+                                        print "<td>" . $row['CodDepartamento'] . "</td>" ; 
+                                        print "<td>" . $row['DescDepartamento'] . "</td>" ;
+                                    echo "</tr>";
+                                }
+
+                       echo "</table>";
+                  }else{
+                      echo "<p>El departamento no se puede introducir, su código es similar a otro al de otro departamento ya incluido."
+                      . "Por favor, vuelve al formulario e introduce un código diferente.</p>";                   
+                  }    
+             
                 $base=null; //Se cierra la conexion
 
             //si la conexion es erronea, capturamos el motivo mediante el catch y lo sacamos por pantalla    
@@ -115,6 +130,8 @@
                 echo 'Error: ' . $error->getMessage() . '</br>';
                 die();//con esta funcion obligamos a terminar el codigo
             }
+            
+            if($diferente){
             ?>
            
             <div id="respuesta">
@@ -124,7 +141,7 @@
             </div>
            
        <?php 
-       
+            }
         }else{ ?>
            <form id="formulario" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                 <div id="content">
