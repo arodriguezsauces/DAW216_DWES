@@ -17,7 +17,7 @@
         //incluir el archivo que contiene los datos de la conexion con la base de datos 
         include_once '../config/datosBase.php';
         
-        echo "<h2>Contenido de la tabla Departmentos</h2>";
+        echo "<h2>Contenido de la tabla Departamentos</h2>";
         
         //probamos la conexion
         try {
