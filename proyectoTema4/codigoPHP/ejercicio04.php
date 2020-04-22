@@ -116,7 +116,7 @@
                                 <th>Código</th>
                                 <th>Descripción</th>
                             </tr>";
-                        while($fila = $resultado->fetchObject()){ //Obtiene la siguiente fila/s y la devuelve como un objeto                   
+                        foreach($resultado as $fila){ //Con fetchObjetc()=Obtiene la siguiente fila/s y la devuelve como un objeto                   
                             echo "<tr>";
                                 echo "<td>" . $fila->CodDepartamento. "</td>";
                                 echo "<td>" . $fila->DescDepartamento. "</td>";
@@ -127,7 +127,8 @@
                 }else{
                     //mostrar la tabla departamentos
                  $mostrarSQL = 'SELECT CodDepartamento, DescDepartamento FROM Departamento ORDER BY CodDepartamento';
-                   
+                 $resultado2 = $base->query($mostrarSQL); 
+                  
                  echo "<table class='tabla'>";
 
                             echo "<tr>";
@@ -137,7 +138,7 @@
 
                             echo "</tr>";
 
-                                foreach ($base->query($mostrarSQL) as $row) {
+                                foreach ($resultado2 as $row) {
                                     echo "<tr>";
                                         print "<td>" . $row['CodDepartamento'] . "</td>" ; 
                                         print "<td>" . $row['DescDepartamento'] . "</td>" ;

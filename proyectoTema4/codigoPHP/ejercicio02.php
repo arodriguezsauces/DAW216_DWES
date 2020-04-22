@@ -29,7 +29,10 @@
             //se utiiza la conexion para sacar los datos de la tabla Departamento
             
             $mostrarSQL = 'SELECT CodDepartamento, DescDepartamento FROM Departamento ORDER BY CodDepartamento';
+            $resultado = $base->query($mostrarSQL);
             
+            if($resultado->rowCount()>0){
+                echo "Número de registros: " . $resultado->rowCount() ."</br></br>";
             echo "<table>";
             
                 echo "<tr>";
@@ -39,7 +42,7 @@
                     
                 echo "</tr>";
                 
-                    foreach ($base->query($mostrarSQL) as $row) {
+                    foreach ($resultado as $row) {
                         echo "<tr>";
                             print "<td>" . $row['CodDepartamento'] . "</td>" ; 
                             print "<td>" . $row['DescDepartamento'] . "</td>" ;
@@ -47,6 +50,10 @@
                     }
                                
            echo "</table>";
+            }else{
+                echo "No hay registros";
+            }
+            
            
             $base=null; //Se cierra la conexion
             
