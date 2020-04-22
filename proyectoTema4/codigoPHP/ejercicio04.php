@@ -96,7 +96,8 @@
 
                 //la variable 'base' es una nuevo PDO que contiene los datos necesarios para establecer la conexion (DNS= host[ip] y base de datos), USUARIO[de la base de datos], CONTRASEÑA[del usuario])
                 $base = new PDO(DNS,USER,PWD);
-                          
+                
+                //la variable reseultado contiene wl resultado del query sobre la base de datos
                 $resultado = $base->query("SELECT * FROM Departamento WHERE DescDepartamento LIKE '%'"); 
                 
                 if(isset($_POST['descripcionD'])){
@@ -114,7 +115,7 @@
                                 <th>Código</th>
                                 <th>Descripción</th>
                             </tr>";
-                        while($fila = $resultado->fetchObject()){ //Mientras haya filas, se sigue creando la tabla de repuesta                     
+                        while($fila = $resultado->fetchObject()){ //Obtiene la siguiente fila/s y la devuelve como un objeto                   
                             echo "<tr>";
                                 echo "<td>" . $fila->CodDepartamento. "</td>";
                                 echo "<td>" . $fila->DescDepartamento. "</td>";
@@ -123,6 +124,7 @@
                         echo "</table>";
                     }
                 }else{
+                    //mostrar la tabla departamentos
                  $mostrarSQL = 'SELECT CodDepartamento, DescDepartamento FROM Departamento ORDER BY CodDepartamento';
                    
                  echo "<table class='tabla'>";
