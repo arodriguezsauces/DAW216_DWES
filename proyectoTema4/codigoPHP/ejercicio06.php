@@ -34,7 +34,7 @@
 
 
             
-            foreach ($departamentosnuevos as $valores=>$valor) {
+            foreach ($departamentosnuevos as $valores=>$valor) { //array asociativo, tambien se podria hacer directamente con $valores[0] y [1]
 
                 //encadeno el prepare y el execute, en este último indico los campos que introducire en el query, en las posicione que ocupan los ?
                    $base->prepare($insertarSQL)->execute([$valor[0],$valor[1]]);                       
