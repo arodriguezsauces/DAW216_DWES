@@ -23,7 +23,7 @@
         try {
             
             //la variable 'base' es una nuevo PDO que contiene los datos necesarios para establecer la conexion (DNS= host[ip] y base de datos), USUARIO[de la base de datos], CONTRASEÑA[del usuario])
-            $base = new PDO(DNS,USER,PWD);
+            $base = new PDO(DNS,USER,PWD, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8")); //utf-8 para los caracteres especiales
             
             //incluimos en un array todos los atributos de la base de datos que queremos sacar
             $atributos = array(
