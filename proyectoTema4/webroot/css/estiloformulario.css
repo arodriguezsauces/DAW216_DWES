@@ -1,0 +1,91 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif; 
+}
+
+    body{
+        padding: 0px;
+        margin: 0px;
+        border:none;
+        width: 100%;
+        background-color: #FE77FE;
+        background: #FAB4FA;
+    }
+
+    
+
+        #formulario{
+            margin: 0 auto;
+            align-content: center;
+            padding: 5px;
+            border-radius: 10px;
+            border: 3px solid #666666;
+            width: 500px;
+        }
+
+            label {
+                font-weight: bold;
+                color: #444;
+                font-size: 14px;
+            }
+
+            input {
+                font-size: 14px;
+
+            }
+            
+                #descripcionD{
+                    width: 490px;
+                }
+
+                input {
+                    border-radius: 5px;
+                    margin: 10px 0;
+                    background: #fff;
+                    border: 1px solid #ccc;
+                    color: #777;
+                    max-width: 100%;
+                    outline: none;
+                    padding: 7px 8px;
+                }
+                
+                
+
+                input[type="submit"] {
+                    border-radius: 5px;
+                    margin: 10px 0;
+                    background: #0088B2;
+                    color: #fff;
+                    padding: 8px 14px;
+                    font-weight: bold;
+                    border: none;
+                    cursor: pointer;
+                }
+
+                input[type="submit"]:hover {
+                    background: #444;
+                }
+
+            
+            #respuesta{
+                text-align: center;
+            } 
+            
+            .selecciones{
+               font-weight:initial; 
+            }
+
+            ::placeholder{
+                color:#FAB4FA;
+            }
+             .tabla{
+                        margin:100px;
+                        padding:10px;
+                        width: 1100px;
+                        text-align: left;
+                    }
+                    .tabla td{
+                        padding:10px;
+                    }

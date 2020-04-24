@@ -1,0 +1,204 @@
+
+		/*Colocación y detalles de la página inicial de la página*/
+		
+    /*Caracteristicas generales de toda la página*/
+    *{
+      margin: 0;
+      padding: 0;
+      font-family: Helvetica Neue,Helvetica,Arial,sans-serif; 
+    }
+    body{
+    background-color: #FE77FE;
+    background: #FAB4FA;
+}
+    
+        /*Caracteristicas generales de la lista(ul)*/
+        ul{
+          list-style: none;
+          background: linear-gradient(to bottom, #99ccff 15%, #FE77FE 200%);
+          display: flex;
+          flex-direction: column;
+          
+          
+        }
+            /*Caracteristicas de cada apartado de la lista(li)*/
+            ul li{
+              flex: 1 0 auto;
+              position: relative;
+            }
+            /*Caracteristicas de cada contenido de cada apartado de la lista(a)*/
+            ul li a{
+              text-decoration: none;
+              color: #FFF;
+              padding: 15px;
+              display: block;
+              text-align: center;
+              font-weight: bold;
+              
+            }
+            
+            ul li a img{
+                visibility: hidden;
+               
+            }
+            
+             ul li a:hover img{
+                 visibility: visible;
+                 
+                 
+             }
+            
+            
+                /*Cuando pasas el raton por cada contenido(a) cambian las caracteristicas*/
+                ul li a:hover{
+                  background: rgba(240,240,240,0.5);
+                  color: white;
+                  text-decoration: none;
+                  
+
+                }
+                
+        
+        /*Caracteristicas del primer submenu*/        
+        .sbm1{
+          position: absolute;
+          display: none;
+          background: #000;
+          width: 97%;
+          opacity:0.2;
+          top:80px;
+        }
+        
+        
+        
+        .sbm1 li:hover a{
+          background: blue;
+        }
+
+        
+         .sbm1 a{
+          text-decoration: none;
+        }
+            
+         .menu li:hover{
+                            transition-property: background-color;
+                            transition-duration: 0.5s;
+                            background-color: purple;
+                            
+                        }
+            
+        .menu li{
+                    color: white;
+                    list-style: none;
+                    display: inline;
+                    border-top: 2px solid white;
+                    border-bottom: 2px solid white;
+                    padding: 15px 5px;
+                    transition-duration: 1s;
+                }
+                
+                /*Caracteristicas de cada apartado de la lista del primer menú cuando pasas el ratón por encima*/
+                .menu li:hover{
+                    
+                    transition-property: padding;
+                    transition-duration: 1s;
+                    padding: 10px 7px;
+                }
+
+        /*Caracteriticas de la página si tiene como máximo un tamaño de 640px*/
+        @media all and (max-width:640px){
+          .sbm1 li a{
+            padding-left: 30px;
+          }
+          .sbm1{
+            display: none;
+          }
+          .menu li:hover .sbm1{
+            display:block;
+            position: relative;
+          }
+          
+        }
+        
+        /*Caracteristicas de la página si tiene como mínimo un tamaño de 640px*/
+        @media all and (min-width:640px){
+          .menu{
+            flex-direction: row;
+          }
+          .sbm1{
+            display: none;
+          }
+          .sbm1:hover {
+            display: none;
+          }
+          .menu li:hover .sbm1{
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+          }
+          
+          
+        }
+        
+footer{
+    display:flex;
+    margin:0 auto;
+    padding:0;
+        width: 1024px;
+	background: #333;
+    color: white;
+    text-align: center;	
+	padding: 20px;
+	margin-top: 80px;
+
+}
+         footer img{
+                        visibility:hidden;
+                    }
+                    footer:hover img{
+                        
+                            visibility:visible;
+                        
+                        
+                    }
+                    .contenido{
+                        text-align: center;
+                        padding: 20px;
+                       
+                    }
+                    .ejercicios{
+                        padding: 20px;
+                        
+                    }
+                    
+                    .ejercicios a{
+                        text-decoration: none;
+                        color:white;
+                       
+                    }
+                    
+                    .ejercicios a:hover{
+                        text-decoration: underline;
+                        font-weight: bold;
+                    }
+                    
+                    .ejercicio{
+                        font-size:1.3em;
+                    }
+                    .document{
+                        font-size:1em;
+                    }
+                    h2{
+                        padding:10px;
+                    }
+                    table{
+                        margin:0 auto;
+                        padding:10px;
+                        width: 1200px;
+                        text-align:left;
+                    }
+                    table td{
+                        padding:10px;
+                    }
+
+                  
